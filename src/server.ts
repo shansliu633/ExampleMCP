@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { z } from "zod";
+import * as fs from "fs";
+import * as path from "path";
 
 const server = new McpServer({
   name: "mcp-streamable-http",
@@ -86,6 +88,54 @@ const getDadJoke = server.tool(
         },
       ],
     };
+  }
+);
+
+// Get Kusto event file tool
+const getKustoEvent = server.tool(
+  "get-kusto-event",
+  "Get a Kusto event schema file by event name",
+  {
+    eventName: z.string().describe("Name of the Kusto event (without .json extension)"),
+  },
+  async (params: { eventName: string }) => {
+    try {
+      const filePath = path.join(process.cwd(), "data", `${params.eventName}.json`);
+      
+      // Check if file exists
+      if (!fs.existsSync(filePath)) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Error: Event file '${params.eventName}.json' not found in data folder`,
+            },
+          ],
+        };
+      }
+
+      // Read and parse the JSON file
+      const fileContent = fs.readFileSync(filePath, "utf8");
+      const jsonData = JSON.parse(fileContent);
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(jsonData, null, 2),
+          },
+        ],
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Error reading event file '${params.eventName}.json': ${error instanceof Error ? error.message : "Unknown error"}`,
+          },
+        ],
+      };
+    }
   }
 );
 

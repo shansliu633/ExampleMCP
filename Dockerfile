@@ -6,6 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 COPY tsconfig.json ./
 COPY src/ ./src/
+COPY data/ ./data/
 
 RUN --mount=type=cache,target=/root/.npm npm install
 
@@ -16,6 +17,7 @@ FROM node:22-alpine AS release
 WORKDIR /app
 
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/data ./data
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/package-lock.json ./
 

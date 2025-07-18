@@ -1,0 +1,129 @@
+[
+{
+"field": "App_Name",
+"type": "string",
+"description": "Name of the application.",
+"possible_values": ["Word", "Excel", "PowerPoint", "OfficeMobile", "Outlook", "OneNote", "Loop"]
+},
+{
+"field": "App_Platform",
+"type": "string",
+"description": "Platform the application is running on (e.g., iOS, Mac)."
+},
+{
+"field": "App_Version",
+"type": "string",
+"description": "Version of the application."
+},
+{
+"field": "Client_Id",
+"type": "string",
+"description": "Unique identifier for the client."
+},
+{
+"field": "Device_NetworkCountry",
+"type": "string",
+"description": "Country of the device's network."
+},
+{
+"field": "Device_OsBuild",
+"type": "string",
+"description": "Build number of the device's operating system."
+},
+{
+"field": "Device_OsVersion",
+"type": "string",
+"description": "Version of the device's operating system."
+},
+{
+"field": "Release_Audience",
+"type": "string",
+"description": "Release audience for the application (e.g., Production, Insider)."
+},
+{
+"field": "Release_AudienceGroup",
+"type": "string",
+"description": "Specific group within the release audience."
+},
+{
+"field": "Session_Id",
+"type": "string",
+"description": "Unique identifier for the user session."
+},
+{
+"field": "Data_AffectedSessionVersion",
+"type": "string",
+"description": "Version of the session that was affected."
+},
+{
+"field": "Data_AffectedSessionBuildNumber",
+"type": "string",
+"description": "Build number of the affected session."
+},
+{
+"field": "Data_AffectedSessionOSVersion",
+"type": "string",
+"description": "OS version of the affected session."
+},
+{
+"field": "Data_AffectedSessionOSLocale",
+"type": "string",
+"description": "OS locale of the affected session."
+},
+{
+"field": "Data_DeviceModel",
+"type": "string",
+"description": "Model of the device."
+},
+{
+"field": "Event_ReceivedTime",
+"type": "datetime",
+"description": "Timestamp when the event was received."
+},
+{
+"field": "Event_SampleRate",
+"type": "real",
+"description": "The rate at which this event is sampled."
+},
+{
+"field": "Data_AffectedProcessSessionID",
+"type": "string",
+"description": "Session ID of the affected process."
+},
+{
+"field": "Data_AffectedSessionUAEType",
+"type": "long",
+"description": "Type of the Unhandled Application Exit."
+},
+{
+"field": "User_TenantId",
+"type": "string",
+"description": "Identifier for the user's tenant."
+},
+{
+"field": "User_TenantGroup",
+"type": "string",
+"description": "Group of the user's tenant."
+},
+{
+"field": "App_InstallType",
+"type": "long",
+"description": "Type of application installation."
+},
+{
+"field": "Release_Fork",
+"type": "string",
+"description": "The fork of the release."
+},
+{
+"field": "User_PrimaryIdentityHash",
+"type": "string",
+"description": "Hashed primary identity of the user."
+},
+{
+"field": "Session_SubAppName",
+"type": "string",
+"description": "Name of the sub-application if any.",
+"possible_values": ["Word", "Excel", "PowerPoint", "OfficeMobile", "Empty"]
+}
+]
